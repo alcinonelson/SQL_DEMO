@@ -1,0 +1,25 @@
+/*checking for duplicates in table titled project
+
+SELECT project_name, 
+       project_id,
+       start_date,
+       end_date,
+       COUNT(*) AS duplicate_count
+FROM projects
+GROUP BY project_name, 
+         project_id,
+         start_date,
+         end_date
+HAVING COUNT(*) > 1;
+
+/* checking for missing values in table titled project
+SELECT project_id,
+       project_name,
+       project_description,
+       client_id,
+       start_date,
+       end_date,
+       status,
+       budget
+FROM projects
+WHERE client_id IS NULL;
